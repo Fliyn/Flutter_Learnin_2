@@ -35,13 +35,17 @@ class _MainCCState extends State<MainCC> {
             child: Column(
               children: [Row(
                 children: [
-                  Expanded(child: Text("DATA",style: TextStyle(color: Colors.black,letterSpacing: 2.0,))),Expanded(child: Text("$counterse",style: TextStyle(color: Colors.black,letterSpacing: 2.0,))),Expanded(child: Text("2",style: TextStyle(color: Colors.black,letterSpacing: 2.0,))),
+                  Expanded(child: Text("DATA",style: TextStyle(color: Colors.black,letterSpacing: 2.0,))),
+                  Expanded(child: Text("$counterse",style: TextStyle(color: Colors.black,letterSpacing: 2.0,))),
+                  Expanded(child: Text("2",style: TextStyle(color: Colors.black,letterSpacing: 2.0,))),
                 ],
               ),Padding(
                 padding: EdgeInsets.fromLTRB(0,18,0,0),
                 child: Row(
                   children: [
-                    Expanded(child: Text("$wax",style: TextStyle(color: Colors.black,letterSpacing: 2.0,))),Expanded(child: Text("1",style: TextStyle(color: Colors.black,letterSpacing: 2.0,))),Expanded(child: Text("2",style: TextStyle(color: Colors.black,letterSpacing: 2.0,))),
+                    Expanded(child: Text("$wax",style: TextStyle(color: Colors.black,letterSpacing: 2.0,))),
+                    Expanded(child: Text("1",style: TextStyle(color: Colors.black,letterSpacing: 2.0,))),
+                    Expanded(child: Text("2",style: TextStyle(color: Colors.black,letterSpacing: 2.0,))),
                   ],
                 ),
               ),
@@ -52,10 +56,14 @@ class _MainCCState extends State<MainCC> {
                     Expanded(child: TextButton(onPressed: (){setState(() {
                       counterse+=1;
                       if(counterse>10){
-                        wax="10+ Veriable";
+                        wax="2+ more";
                       }
-                    });},
-                        child: Icon(Icons.add))),Expanded(child: Text("1",style: TextStyle(color: Colors.black,letterSpacing: 2.0,))),Expanded(child: Text("2",style: TextStyle(color: Colors.black,letterSpacing: 2.0,))),
+                      if(counterse>12){
+                        _navigateToNextScreen(context);
+                      }
+                    });},child: Icon(Icons.add))),
+                    Expanded(child: Text("1",style: TextStyle(color: Colors.black,letterSpacing: 2.0,))),
+                    Expanded(child: Text("2",style: TextStyle(color: Colors.black,letterSpacing: 2.0,))),
                   ],
                 ),
               ),],
@@ -64,5 +72,42 @@ class _MainCCState extends State<MainCC> {
         ),
     );
   }
+    void _navigateToNextScreen(BuildContext context) {
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewScreen()));
+    }
 }
 
+    class NewScreen extends StatefulWidget {
+  @override
+  State<NewScreen> createState() => _NewScreenState();
+}
+
+    class _NewScreenState extends State<NewScreen> {
+          @override
+          Widget build(BuildContext context) {
+            return Scaffold(
+              appBar: AppBar(title: const Text('WİN 2'),centerTitle: true,backgroundColor: Colors.green[400],),
+              body: Column(
+                children: [
+                  Row(
+                    children: [
+                      const Center(
+                        child: Text('Page:txt1', style: TextStyle(fontSize: 24.0),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  Row(
+                    children: [
+                      const Center(
+                        child: Text('Page:txt2', style: TextStyle(fontSize: 24.0),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            );
+          }
+    }
