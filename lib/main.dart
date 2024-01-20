@@ -88,8 +88,10 @@ class _MainCCState extends State<MainCC> {
             return Scaffold(
               appBar: AppBar(title: const Text('WİN 2'),centerTitle: true,backgroundColor: Colors.green[400],),
               body: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Center(
                         child: Text('Page:txt1', style: TextStyle(fontSize: 24.0),
@@ -99,6 +101,7 @@ class _MainCCState extends State<MainCC> {
                   ),
 
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Center(
                         child: Text('Page:txt2', style: TextStyle(fontSize: 24.0),
