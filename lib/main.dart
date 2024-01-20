@@ -73,6 +73,7 @@ class _MainCCState extends State<MainCC> {
     );
   }
     void _navigateToNextScreen(BuildContext context) {
+      counterse=0;
       Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewScreen()));
     }
 }
